@@ -78,7 +78,30 @@ _Googles_trends_ graph
 - Probably not the best language for embedded programming of realtime applications. Although some people have used it succesfully for that. Your mileage may vary.
 - It is not a scripting language like Javascript, Ruby or Python. But it was designed to feel like it.
 
+* How do I learn Go?
+- Read the spec
+- Practice, write code.
+- Contribute to an opensource project.
+
 * How do I install Go?
 - *Windows:* Download MSI installer from https://golang.org/dl/. It will put the Go distribution in `C:\Go` and add `C:\Go\bin` to your PATH env variable.
 - *OSX:* Download DMG package from https://golang.org/dl/. It will put the Go distribution in `/usr/local/go` and add `/usr/local/go/bin` to your PATH env variable
 - *Linux:* Download the archive from https://golang.org/dl/. Create a Go tree in `/usr/local/go`. Add `/usr/local/go/bin` to the PATH environment variable `echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile`.
+
+* What about IDE support?
+- *SublimeText2* https://github.com/DisposaBoy/GoSublime
+- *Vim:* https://github.com/fatih/vim-go
+- *IntelliJ:* https://github.com/go-lang-plugin-org/go-lang-idea-plugin
+- *Eclipse:* https://github.com/GoClipse/goclipse
+
+* Demo
+
+* Go resources
+- http://codegangsta.gitbooks.io/building-web-apps-with-go
+- http://www.golang-book.com/
+- https://github.com/astaxie/build-web-application-with-golang/blob/master/en/eBook/preface.md
+- http://jan.newmarch.name/go
+- http://www.golangbootcamp.com/book
+- https://github.com/avelino/awesome-go
+- https://gocasts.io
+- https://gophercasts.io/
