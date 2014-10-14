@@ -77,3 +77,8 @@ _Googles_trends_ graph
 - It is not a pure Object Oriented language nor a Functional one. Although it borrows things from various programming paradigms and languages.
 - Probably not the best language for embedded programming of realtime applications. Although some people have used it succesfully for that. Your mileage may vary.
 - It is not a scripting language like Javascript, Ruby or Python. But it was designed to feel like it.
+
+* How do I install Go?
+- *Windows:* Download MSI installer from https://golang.org/dl/. It will put the Go distribution in `C:\Go` and add `C:\Go\bin` to your PATH env variable.
+- *OSX:* Download DMG package from https://golang.org/dl/. It will put the Go distribution in `/usr/local/go` and add `/usr/local/go/bin` to your PATH env variable
+- *Linux:* Download the archive from https://golang.org/dl/. Create a Go tree in `/usr/local/go`. Add `/usr/local/go/bin` to the PATH environment variable `echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile`.
