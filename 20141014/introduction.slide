@@ -1,0 +1,36 @@
+Introduction to Golang
+Medellín
+14 Oct 2014
+
+Simon Escobar Benitez
+Go entusiast
+sescobb27@gmail.com
+@sescob27
+
+Camilo Aguilar
+Entrepreneur
+camilo.aguilar@gmail.com
+@c4milo
+
+* What is Go?
+- Open source
+- Concurrent
+- Memory safe
+- Garbage Collected
+- C-Family language
+- Simple
+.image gophers.jpg
+
+* Why Go?
+Robert Love when asked in Quora about what kind of programming language we
+need in the future.
+
+.image whygo.png
+
+* Who is behind Go?
+- Robert Pike (Unix / UTF-8)
+- Kenneth Thompson (B and C lang/Unix/UTF-8)
+- Ian Lance Taylor (GCC)
+- Robert Griesemer (Hotspot JVM)
+- 547 contributors as of today. For instance, Windows port was entirely
+contributed by the Go community.
