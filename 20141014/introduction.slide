@@ -90,6 +90,9 @@ _Googles_trends_ graph
 - Read the spec
 - Practice, write code.
 - Contribute to an opensource project.
+- Get in touch with the community:
+- *Forum:* https://groups.google.com/forum/#!forum/golang-nuts
+- *IRC:* #go-nuts at *irc.freenode.net*
 
 * How do I install Go?
 - *Windows:* Download MSI installer from https://golang.org/dl/. It will put the Go distribution in `C:\Go` and add `C:\Go\bin` to your PATH env variable.
@@ -105,6 +108,7 @@ _Googles_trends_ graph
 * Demo
 
 * Go resources
+- http://roberto.costumero.es/slides/Go2010/manual_go.pdf
 - http://codegangsta.gitbooks.io/building-web-apps-with-go
 - http://www.golang-book.com/
 - https://github.com/astaxie/build-web-application-with-golang/blob/master/en/eBook/preface.md
