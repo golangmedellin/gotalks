@@ -32,5 +32,48 @@ need in the future.
 - Kenneth Thompson (B and C lang/Unix/UTF-8)
 - Ian Lance Taylor (GCC)
 - Robert Griesemer (Hotspot JVM)
+- Russ Cox (Plan9/CSP)
 - 547 contributors as of today. For instance, Windows port was entirely
 contributed by the Go community.
+
+* Who uses Go?
+- Google
+- Facebook
+- Heroku
+- Amazon
+- New York Times
+- Canonical
+- Github
+- Hailo
+- pool.ntp.org
+- Shopify
+- Zynga
+- Somewhat complete list at https://code.google.com/p/go-wiki/wiki/GoUsers
+
+* Go's adoption
+.image adoption.png
+_Googles_trends_ graph
+
+* Go's main features (1/2)
+- Statically compiled but has type-inference
+- Explicit coding, no magic, no meta-programming
+- Fast compilations (`go build` and you're done)
+- Composition over inheritance
+- Duck Typing
+- Functions are first class citizens
+- Closures
+- Pointers but not pointer arithmetic
+
+* Go's main features (2/2)
+- No exceptions, instead it provides an Error interface and encourages explicit error handling.
+- Visibility is given by the case of the first letter of the type, property or function name.
+- If you declare something and you don't use it, it won't compile.
+- Cyclic dependencies are not allowed, makes the work of the compiler easier but also avoids questionable code design practices.
+- Painless cross compilation (ignoring CGO)
+- Multi-value returns
+
+* What is not Go?
+- It's not a research programming language.
+- It is not a pure Object Oriented language nor a Functional one. Although it borrows things from various programming paradigms and languages.
+- Probably not the best language for embedded programming of realtime applications. Although some people have used it succesfully for that. Your mileage may vary.
+- It is not a scripting language like Javascript, Ruby or Python. But it was designed to feel like it.
