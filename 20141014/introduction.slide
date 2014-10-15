@@ -41,11 +41,14 @@ contributed by the Go community.
 - *Rust:* 697
 - *Node.js:* 649
 - *Scala:* 248
+- *Ruby:* 93
+- *Python:* 204
 
 _Source:_ _https://www.openhub.net/_
 
 * Who uses Go?
 - Google
+- Apple
 - Facebook
 - Heroku
 - Amazon
@@ -55,7 +58,6 @@ _Source:_ _https://www.openhub.net/_
 - Hailo
 - pool.ntp.org
 - Shopify
-- Zynga
 - Somewhat complete list at https://code.google.com/p/go-wiki/wiki/GoUsers
 
 * Go's adoption
@@ -90,7 +92,7 @@ _Googles_trends_ graph
 - Read the spec
 - Practice, write code.
 - Contribute to an opensource project.
-- Get in touch with the community:
+- Don't be embarrased to ask questions
 - *Forum:* https://groups.google.com/forum/#!forum/golang-nuts
 - *IRC:* #go-nuts at *irc.freenode.net*
 
