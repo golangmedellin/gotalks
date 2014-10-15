@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Twitter Image Stream</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var conn = new WebSocket("ws://localhost:3000/ws");
+            conn.onclose = function(event) {
+                console.log('closed');
+            };
+            conn.onmessage = function(event) {
+                var tweet = JSON.parse(event.data);
+                var tr = '<tr>';
+                tr += '<td>'+tweet.name+'</td>';
+                tr += '<td>'+tweet.screenName+'</td>';
+                tr += '<td>'+tweet.text+'</td>';
+                tr += '<td>'+(tweet.hashtags || "")+'</td>';
+                tr += '<td>'+(tweet.mentions || "")+'</td>';
+                tr += '</tr>';
+
+                $("#tweets_tbl tbody").append(tr);
+
+                console.log(event.data);
+            };
+        });
+    </script>
+</head>
+<body>
+    <table id="tweets_tbl" class="table">
+        <caption>Tweets</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ScreenName</th>
+                <th>Text</th>
+                <th>Hashtags</th>
+                <th>Mentions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
