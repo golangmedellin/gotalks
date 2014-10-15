@@ -10,7 +10,7 @@ $ present
 $ open http://127.0.0.1:3999 in your preferred browser
 ```
 
-# Resources
+# Go Resources
 - http://roberto.costumero.es/slides/Go2010/manual_go.pdf
 - http://codegangsta.gitbooks.io/building-web-apps-with-go
 - http://www.golang-book.com/
