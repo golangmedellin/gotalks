@@ -2,7 +2,7 @@
 
 Slides can be seen using the tool Go Present.
 
-```shell
+```bash
 $ go get code.google.com/p/go.tools/present
 $ go get github.com/golangmedellin/gotalks
 $ cd $GOPATH/src/github.com/golangmedellin/gotalks/<meetup date>
