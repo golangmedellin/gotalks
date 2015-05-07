@@ -1,0 +1,73 @@
+Conquering the web with golang
+Medellin
+3 Feb 2015
+Tags: go, golang, web, http
+
+Simon Escobar B
+Go entusiast
+sescobb27@gmail.com
+www.github.com/sescobb27
+@sescobb27
+
+* Requests
+.link http://golang.org/pkg/net/http/ net/http
+
+        resp, err := http.Get("http://example.com/")
+        // http.(Head - Post - PostForm)
+
+        // func NewRequest(method, urlStr string, body io.Reader) (*Request, error)
+        req, err := http.NewRequest("GET", "http://example.com", nil)
+
+        req, err := http.NewRequest(
+            "POST",
+            "/signup",
+            strings.NewReader("username=test&email=test@gmail.com&lastname=Escobar&name=Simon&password=12345"),
+        )
+        http.DefaultClient.Do(req)
+
+        resp, err := http.PostForm("http://example.com/form",
+            url.Values{
+                "username": {"test"},
+                "email":    {"test@gmail.com"},
+                "lastname": {"Escobar"},
+                "name":     {"Simon"},
+                "password": {"12345"},
+            }
+        )
+
+* Responses
+        type Response struct {
+          Status     string         // e.g. "200 OK"
+          StatusCode int            // e.g. 200
+          Body       io.ReadCloser  // Body represents the response body.
+                                    // The http Client and Transport guarantee that Body is always
+                                    // non-nil, even on responses without a body or responses with
+                                    // a zero-length body. It is the caller's responsibility to
+                                    // close Body.
+        }
+
+* Example
+.play request.go /START OMIT/,/END OMIT/
+
+* Servers
+- Default Server For Go
+    func GetCategories(res http.ResponseWriter, req *http.Request) {}
+    func GetLocations(res http.ResponseWriter, req *http.Request) {}
+.code default_server.go /START OMIT/,/END OMIT/
+
+* Servers
+- httprouter lib
+    func Categories_Handler(res http.ResponseWriter, req *http.Request, _ httprouter.Params) {}
+    func Locations_Handler(res http.ResponseWriter, req *http.Request, _ httprouter.Params) {}
+.code httprouter_server.go /START OMIT/,/END OMIT/
+
+* Tests
+- Default Server Tests
+.code default_test.go /START OMIT/,/END OMIT/
+
+* Tests
+- httprouter Lib Tests
+.code httprouter_test.go /START OMIT/,/END OMIT/
+
+* Streaming
+.play files_on_demand.go /START OMIT/,/END OMIT/
