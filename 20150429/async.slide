@@ -1,0 +1,122 @@
+Asynchronous and Parallel programming in golang
+Medellin
+28 Apr 2015
+Tags: go, golang, async, goroutine, parallel
+
+Simon Escobar B
+Go entusiast
+sescobb27@gmail.com
+www.github.com/sescobb27
+@sescobb27
+
+* What is concurrency?
+
+Concurrency is the composition of independently executing computations.
+
+Concurrency is a way to structure software, particularly as a way to write clean code that interacts well with the real world.
+
+It is not parallelism.
+
+.link https://talks.golang.org/2012/concurrency.slide Rob Pike - 'Concurrency Is Not Parallelism'
+
+_Scaling_software_systems_to_many-core_architectures_is_one_of_the_most_important_challenges_in_computing_today._A_major_impediment_to_scalability_is_synchronization._
+
+.link http://sigops.org/sosp/sosp13/papers/p33-david.pdf Everything You Always Wanted to Know About Synchronization but Were Afraid to Ask
+
+* What is parallelism?
+
+*Divide* *and* *Conquer*
+
+Parallelism is a form of computation in which many calculations are performed simultaneously.
+
+Parallelism is a way to structure software, in a way it can make as much as possible simultaneously.
+
+*BUT*
+
+.link http://en.wikipedia.org/wiki/Parallel_computing#/media/File:AmdahlsLaw.svg Amdahl's law.
+
+* Why? (Concurrency/Parallelism) - Go
+.link http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html How We Went from 30 Servers to 2: Go
+.link http://sendgrid.com/blog/convince-company-go-golang/ Over 500 million messages per day at SendGrid.
+- https://twitter.com/mattetti/status/591129748501176320 Matt Aimonetti - Splice
+- Ruby (the GIL) [[https://twitter.com/yukihiro_matz/status/495219763883163648][Go concurrency patterns in ruby 3?]] _read_discussion_
+- Pyhton (the GIL) [[https://wiki.python.org/moin/GlobalInterpreterLock]]
+- Node.js (Callback Hell - Promises)
+_The_argument_always_came_up_that_you_can_do_asynchronous_programming_in_Java,_but_it_isn’t_pretty_
+
+* Why?
+
+Large programs are often made up of many smaller sub-programs. For example a web server handles requests made from web browsers and serves up HTML web pages in response. Each request is handled like a small program.
+
+It would be ideal for programs like these to be able to run their smaller components at the same time (in the case of the web server to handle multiple requests).
+
+[[http://www.golang-book.com/10/index.htm][golang-book]]
+
+* Currently Using Go
+
+.link https://github.com/golang/go/wiki/GoUsers
+
+* Go Concurrency patterns and approaches
+
+*goroutine*
+_A_goroutine_is_a_lightweight_thread_managed_by_the_Go_runtime._
+
+The creation of a goroutine does not require much memory - *only*2kB*of*stack*space*. They grow by allocating and freeing heap storage as required.
+
+Threads on the other hand start out at *1Mb*(500*times*more)*, along with a region of memory called a guard page that acts as a guard between one thread's memory and another.
+
+[[http://blog.nindalf.com/how-goroutines-work/][How goroutines works]]
+
+* Basic Syncronization (stdlib)
+    sync.WaitGroup
+    sync.RWMutex
+    sync.Mutex
+    sync.Once
+    sync/atomic
+
+* Basic Syncronization (sync.WaitGroup) (stdlib)
+.play parallel_forloop.go /START PARALLELFORLOOP OMIT/,/ END PARALLELFORLOOP OMIT/
+
+* Basic Syncronization (sync.Once) (stdlib)
+.play once.go /START ONCE OMIT/,/END ONCE OMIT/
+
+* Basic Syncronization (sync/atomic)(before) (stdlib)
+.play non_atomic.go /START NON-ATOMIC OMIT/,/END NON-ATOMIC OMIT/
+
+* Basic Syncronization (sync/atomic)(after) (stdlib)
+.play atomic.go /START ATOMIC OMIT/,/END ATOMIC OMIT/
+
+* Danger of Global Variables
+.play async_server.go /START SERVER OMIT/,/END SERVER OMIT/
+
+* Basic Syncronization (sync.RWMutex) (stdlib)
+.link http://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem RWMutex Readers-Writers Problem
+
+* Go Philosophy
+Don't communicate by sharing memory, share memory by communicating.
+
+.link https://blog.golang.org/pipelines Channels
+
+* Syncronization via Channels (stdlib) (semaphore)
+Declaration
+
+.code semaphore.go /START TYPES OMIT/,/END TYPES OMIT/
+
+* Syncronization via Channels (semaphore)
+Implementation
+
+.code semaphore.go /START SEM OMIT/,/END SEM OMIT/
+
+* Syncronization via Channels (semaphore)
+.code semaphore.go /START SEM2 OMIT/,/END SEM2 OMIT/
+
+* Async Promises
+.code promises.go /START PROMISE OMIT/,/END PROMISE OMIT/
+.code promises.go /START REQUEST OMIT/,/END REQUEST OMIT/
+
+* Implementation
+.code promises.go /START IMPLEMENTATION OMIT/,/END IMPLEMENTATION OMIT/
+
+* Must See
+.link https://www.youtube.com/watch?v=cN_DpYBzKso Rob Pike - 'Concurrency Is Not Parallelism'
+.link http://greenteapress.com/semaphores/ The Little Book of Semaphores
