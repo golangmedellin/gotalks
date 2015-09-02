@@ -1,0 +1,144 @@
+iOS apps with Go 1.5
+
+GolangMedellin, September 2015
+
+Johan Hernandez
+Mobile Engineer, Ride.com
+
+im@bithavoc.io
+@bithavoc
+http://bithavoc.io
+https://github.com/bithavoc
+
+* Who am I?
+
+- Colombian?
+- Full-stack developer of Mobile and Cloud apps
+- Gopher since 2013
+- Sometimes Co-Organizer of GolangMedellin
+
+* Getting Started
+
+What do we need?
+
+- Go 1.5
+- Xcode 6 >
+
+Usage: 
+
+	$ go get golang.org/x/mobile/cmd/gomobile
+	$ gomobile command [arguments]
+
+* Initialize toolchain
+
+Init installs the Android C++ compiler toolchain and builds copies of the Go standard library for mobile devices.
+
+
+	$ gomoble init
+
+(takes a few minutes)
+
+* Signing Identities
+
+(only for Xcode 6)
+
+.image signing_identities.jpg 400 _
+
+
+* The Possibilities...
+
+- Native category includes applications entirely written in Go
+
+- Write the common functionality once in Go and glue them to the platform-specific code by invoking the Go package through bindings
+
+
+* A: iOS apps built entirely with Go
+
+* What's available?
+
+-  bind/objc
+-  exp/font
+-  exp/sensor
+-  gl
+-  exp/audio
+-  event/touch
+-  event/paint
+
+(sqlite support coming in Go 1.6?)
+
+Full list available at:
+
+.link https://godoc.org/golang.org/x/mobile https://godoc.org/golang.org/x/mobile
+
+
+* Compiling go app
+
+Retrieving sample app:
+
+	$ go get golang.org/x/mobile/example/basic
+
+Compiling:
+
+	$ gomobile build -target=ios
+
+* Compiling outside `GOPATH` directory:
+
+	$ gomobile build -target=ios golang.org/x/mobile/example/basic
+
+outputs `basic.app` in current directoy.
+
+* Compiling from `GOPATH`:
+
+	$ cd $GOPATH/src/golang.org/x/mobile/example/basic
+	$ gomobile build -target=ios
+
+outputs `basic.app` in sources directoyy
+
+* Submitting to device
+
+- Drag and Drop
+
+.image drag_app_device.png 300 _
+
+- ios-deploy?
+
+	$ ios-deploy -b basic.app
+
+* B: Reusing Go code with gobind
+
+Use in cases where you want to share a common code base between your Android and iOS application, you can write the common functionality once in Go and glue them to the platform-specific code by invoking the Go package through bindings.
+
+Usage:
+
+	$ gomobile bind -target=ios
+
+outputs .framework file.
+
+* Building .framework
+
+Retrieving source code:
+
+	$ go get golang.org/x/mobile/example/bind/hello
+
+Building:
+
+	$ gomobile bind -target=ios golang.org/x/mobile/example/bind/hello
+
+Produces `hello.framework` to include in target Xcode project.
+
+* Demo Time!
+
+Ready?
+
+.image mind_blown.gif 300 _
+
+* Where to go from here?
+
+Detailed guides:
+
+.link https://github.com/golang/go/wiki/Mobile
+
+Real slides:
+
+.link http://talks.golang.org/2015/gophercon-go-on-mobile.slide 
+
